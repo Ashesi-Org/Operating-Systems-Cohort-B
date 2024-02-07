@@ -19,12 +19,18 @@ int main() {
     - 3rd argument is the initial value of semaphore variable
     */
     sem_init(&s, 0, 1);
+
+    // create two threads
     pthread_t thread1, thread2;
     pthread_create(&thread1, NULL, fun1, NULL);
     pthread_create(&thread2, NULL, fun2, NULL);
+
+    // wait for the threads to finish
     pthread_join(thread1, NULL);
     pthread_join(thread2,NULL);
-    printf("Final value of shared variable is %d\n",shared);        //prints the last updated value of shared variable
+
+    // prints the last updated value of shared variable
+    printf("Final value of shared variable is %d\n",shared);
 }
 
 void *fun1() {
