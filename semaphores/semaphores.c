@@ -5,8 +5,8 @@
 #include<semaphore.h>
 #include<unistd.h> 
 
-void *fun1();
-void *fun2();
+void *fun1();       // inrement shared variable by 1
+void *fun2();       // decrement shared variable by 1
 
 int shared = 1;     //shared variable
 sem_t s;            //semaphore variable
